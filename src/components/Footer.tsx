@@ -2,6 +2,8 @@ import { Box, Container, Grid, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import Logo from '../assets/branding/yana.svg?url';
+import Instagram from '../assets/icons/Instagram.svg?url';
+import LinkedIn from '../assets/icons/Linkedin.svg?url';
 import useScreenSize from '../hooks/useScreenSize';
 import theme from '../theme';
 
@@ -33,7 +35,7 @@ export const Footer = () => {
         color: 'white',
         padding: 2,
         py: 4,
-        pb: 10,
+        pb: screenSize === 'sm' ? 12.5 : 10,
         width: `calc(100% - ${sidebarWidth})`,
         marginLeft: `${sidebarWidth}`,
         position: 'relative',
@@ -135,16 +137,8 @@ export const Footer = () => {
               </Typography>
               <Typography variant="body2">Info@yana.com</Typography>
               <Box sx={{ display: 'flex', mt: 2, gap: 2 }}>
-                <img
-                  src="src/assets/icons/Instagram.svg?url"
-                  alt="Instagram"
-                  style={{ width: 52, height: 40 }}
-                />
-                <img
-                  src="src/assets/icons/Linkedin.svg?url"
-                  alt="LinkedIn"
-                  style={{ width: 52, height: 40 }}
-                />
+                <img src={Instagram} alt="Instagram" style={{ width: 52, height: 40 }} />
+                <img src={LinkedIn} alt="LinkedIn" style={{ width: 52, height: 40 }} />
               </Box>
             </Box>
           </Grid>

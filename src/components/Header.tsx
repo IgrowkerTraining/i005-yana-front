@@ -1,10 +1,14 @@
 import styled from '@emotion/styled';
 import { Box, IconButton, Typography } from '@mui/material';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useNotifications } from '../hooks/useNotifications';
 import useScreenSize from '../hooks/useScreenSize';
 import { useAuthStore } from '../store/authStore';
+import { useNotificationsStore } from '../store/notificationsStore';
 import { getFormattedDate } from '../utils/getFormattedDate';
+import NotificationsPopup from './NotificationsPopup';
 
 import Slogan_EN from '../assets/branding/slogan_en.svg?url';
 import Slogan_ES from '../assets/branding/slogan_es.svg?url';
@@ -26,6 +30,16 @@ const CustomIconButton = styled(IconButton)(() => ({
   },
 }));
 
+const NotificationDot = styled(Box)({
+  position: 'absolute' as const,
+  top: '0.2rem',
+  right: '-0.2rem',
+  width: '0.5rem',
+  height: '0.5rem',
+  backgroundColor: theme.colors.red,
+  borderRadius: '50%',
+});
+
 export default function Header() {
   const screenSize = useScreenSize();
   const name = useAuthStore((state) => state.name);
@@ -33,9 +47,73 @@ export default function Header() {
   const location = useLocation().pathname;
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const hasNotifications = useNotificationsStore((state) => state.hasNotifications);
+  useNotifications(); // Start polling
+  const [notificationsAnchor, setNotificationsAnchor] = useState<HTMLElement | null>(null);
 
   const iconSize = screenSize === 'sm' ? '21px' : screenSize === 'md' ? '35px' : '2.5vh';
   const isDesktop = screenSize === 'lg' || screenSize === 'xl';
+
+  // Fake notifications data (replace with real data when backend is ready)
+  const now = Date.now();
+  const hour = 3600000; // 1 hour in milliseconds
+  const day = 24 * hour;
+
+  const fakeNotifications = [
+    {
+      id: '1',
+      messageId: '3',
+      timestamp: now - hour, // 1 hour ago
+    },
+    {
+      id: '2',
+      messageId: '2',
+      timestamp: now - 2 * hour, // 2 hours ago
+    },
+    {
+      id: '3',
+      messageId: '2',
+      timestamp: now - 3 * hour, // 3 hours ago
+    },
+    {
+      id: '4',
+      messageId: '3',
+      timestamp: now - 5 * hour, // 5 hours ago
+    },
+    {
+      id: '5',
+      messageId: '1',
+      timestamp: now - 7 * hour, // 7 hours ago
+    },
+    {
+      id: '6',
+      messageId: '3',
+      timestamp: now - day, // Yesterday
+    },
+    {
+      id: '7',
+      messageId: '1',
+      timestamp: now - (day + 2 * hour), // Yesterday + 2 hours
+    },
+    {
+      id: '8',
+      messageId: '2',
+      timestamp: now - 2 * day, // 2 days ago
+    },
+    {
+      id: '9',
+      messageId: '3',
+      timestamp: now - 3 * day, // 3 days ago
+    },
+  ];
+
+  const handleNotificationsClick = (event: React.MouseEvent<HTMLElement>) => {
+    setNotificationsAnchor(notificationsAnchor ? null : event.currentTarget);
+  };
+
+  const handleNotificationsClose = () => {
+    setNotificationsAnchor(null);
+  };
 
   if (
     location === '/login' ||
@@ -121,7 +199,7 @@ export default function Header() {
           textAlign: 'center',
         }}
       >
-        {location !== '/' && location !== '/FAQ' && !isDesktop && (
+        {location !== '/' && location !== '/FAQ' && location !== '/notifications' && !isDesktop && (
           <Typography variant="h5" sx={{ color: 'white' }}>
             {t(`${location}.title`)}
           </Typography>
@@ -129,10 +207,21 @@ export default function Header() {
       </Box>
 
       <Box sx={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-        <CustomIconButton>
-          <img src={NotificationsIcon} alt="Notifications" style={{ height: iconSize }} />
-        </CustomIconButton>
-        {screenSize === 'sm' && <HamburgerMenu />}
+        {location !== '/notifications' && (
+          <Box sx={{ position: 'relative' }}>
+            <CustomIconButton onClick={handleNotificationsClick}>
+              <img src={NotificationsIcon} alt="Notifications" style={{ height: iconSize }} />
+            </CustomIconButton>
+            {hasNotifications && <NotificationDot />}
+          </Box>
+        )}
+        <NotificationsPopup
+          anchorEl={notificationsAnchor}
+          open={Boolean(notificationsAnchor)}
+          onClose={handleNotificationsClose}
+          notifications={fakeNotifications}
+        />
+        {screenSize === 'sm' && location !== '/notifications' && <HamburgerMenu />}
         {screenSize !== 'sm' && (
           <CustomIconButton onClick={() => navigate('/profile')}>
             <img src={ProfileIcon} alt="Profile" style={{ height: iconSize }} />

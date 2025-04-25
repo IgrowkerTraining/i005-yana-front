@@ -10,7 +10,7 @@ export const useSendSupport = () => {
   }
 
   return useMutation({
-    mutationFn: (data: { shared_emotion: number | null; template: string }) =>
+    mutationFn: (data: { shared_emotion: number | null; template_id: number }) =>
       emotionsService.sendSupport(data, accessToken),
   });
 };

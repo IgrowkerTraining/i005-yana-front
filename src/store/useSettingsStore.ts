@@ -3,6 +3,7 @@ import { persist } from 'zustand/middleware';
 
 interface MuteSettings {
   duration: '1h' | '24h';
+  originalDuration: '1h' | '24h';
   createdAt: number;
 }
 
@@ -41,11 +42,36 @@ export const useSettingsStore = create<SettingsStore>()(
       settings: defaultSettings,
       updateSetting: (key, value) =>
         set((state) => {
-          if (key === 'mute' && value) {
+          if (key === 'mute') {
+            if (value === null) {
+              return {
+                settings: {
+                  ...state.settings,
+                  [key]: null,
+                },
+              };
+            }
+            if (typeof value === 'object' && 'duration' in value) {
+              return {
+                settings: {
+                  ...state.settings,
+                  [key]: {
+                    duration: value.duration,
+                    originalDuration: value.duration,
+                    createdAt: Date.now(),
+                  },
+                },
+              };
+            }
+            const duration = value as '1h' | '24h';
             return {
               settings: {
                 ...state.settings,
-                [key]: { duration: value as '1h' | '24h', createdAt: Date.now() },
+                [key]: {
+                  duration,
+                  originalDuration: duration,
+                  createdAt: Date.now(),
+                },
               },
             };
           }

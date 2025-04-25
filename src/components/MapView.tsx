@@ -40,9 +40,6 @@ export const MapView = () => {
 
   const isVisible = location.pathname === '/';
 
-  console.log(modalUserId);
-  console.log(JSON.stringify(data));
-
   // Show loading state when either creating emotion or fetching nearby emotions
   useEffect(() => {
     if (lastSelectedEmotion) {
@@ -114,7 +111,6 @@ export const MapView = () => {
       const sharedEmotionId = data[0]?.shared_emotion_id;
       setSharedEmotionId(sharedEmotionId);
       renderEmotionMarkers(data, mapRef, markersRef, openModal);
-      console.log(sharedEmotionId);
     } else if (!lastSelectedEmotion) {
       clearMarkers(markersRef);
     }

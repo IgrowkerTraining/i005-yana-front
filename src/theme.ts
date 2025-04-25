@@ -17,6 +17,9 @@ declare module '@mui/material/styles' {
       red: string;
       defaultBackground: string;
       lightRed: string;
+      notificationGreen: string;
+      notificationBlue: string;
+      notificationPink: string;
     };
     gradients: {
       gradientBlack?: string;
@@ -47,6 +50,9 @@ declare module '@mui/material/styles' {
       red?: string;
       defaultBackground?: string;
       lightRed?: string;
+      notificationGreen?: string;
+      notificationBlue?: string;
+      notificationPink?: string;
     };
     gradients?: {
       gradientBlack?: string;
@@ -125,6 +131,9 @@ const theme = createTheme({
     red: '#B3261E',
     defaultBackground: '#1B201B',
     lightRed: '#FF8D98',
+    notificationGreen: '#E7FFEE',
+    notificationBlue: '#E5EDFF',
+    notificationPink: '#FFE5F7',
   },
   gradients: {
     gradientBlack: 'linear-gradient(to top, #262626, #3E4044)',

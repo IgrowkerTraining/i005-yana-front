@@ -13,10 +13,20 @@ import SettingsSection from '../../components/profile/SettingsSection';
 import { useProfileRedirect } from '../../hooks/useProfileRedirect';
 import { useSettingsStore } from '../../store/useSettingsStore';
 import theme from '../../theme';
+
 export default function InteractionsSettings() {
   useProfileRedirect();
   const { t } = useTranslation();
   const { settings, updateSetting } = useSettingsStore();
+
+  const handleMuteChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const duration = e.target.value as '1h' | '24h';
+    updateSetting('mute', {
+      duration,
+      originalDuration: duration,
+      createdAt: Date.now(),
+    });
+  };
 
   return (
     <SettingsSection
@@ -44,7 +54,7 @@ export default function InteractionsSettings() {
         />
       </CommonBox>
 
-      <CommonBox>
+      <CommonBox sx={{ justifyContent: 'space-between' }}>
         <FormControl
           sx={{
             width: '100%',
@@ -65,13 +75,10 @@ export default function InteractionsSettings() {
           </FormLabel>
           <RadioGroup
             aria-labelledby="mute-radio-group-label"
-            value={settings.mute?.duration || ''}
-            onChange={(e) => {
-              const duration = e.target.value as '1h' | '24h';
-              updateSetting('mute', { duration, createdAt: Date.now() });
-            }}
+            value={settings.mute?.originalDuration || ''}
+            onChange={handleMuteChange}
             name="mute-radio-group"
-            sx={{ display: 'flex', flexDirection: 'row', gap: 4 }}
+            sx={{ display: 'flex', flexDirection: 'row', gap: 4, flexWrap: 'nowrap' }}
           >
             <FormControlLabel
               value="1h"

@@ -129,7 +129,40 @@ i18n.use(initReactI18next).init({
         },
         '/contacts': {
           menu: 'Contacts',
-          title: 'Contacts',
+          title: 'Institutions',
+          contacts: {
+            'Centro de Atención al Suicida (CAS)': {
+              description:
+                'Provides care and assistance to people in emotional crisis or at risk of suicide.',
+              schedule: 'Hours: available 24/7, every day.',
+              phone:
+                'Phone: 135 (toll-free from landlines in CABA and Greater Buenos Aires) or (011) 5275-1135 (from anywhere in the country).',
+            },
+            'Programa Nacional de Prevención del Suicidio': {
+              description:
+                'Offers support, information, and counseling to people in crisis or those seeking to help someone in that situation.',
+              schedule: 'Hours: available 24/7, every day.',
+              phone: 'Phone: 141 (toll-free and confidential line).',
+            },
+            'Salud Mental': {
+              description:
+                'Provides assistance, support, and referrals for mental health emergencies.',
+              schedule: 'Hours: available 24/7, every day.',
+              phone: 'Phone: 0800 999 0091 (toll-free line).',
+            },
+            'Atención a Niñas, Niños y Adolescentes': {
+              description:
+                'Provides support, counseling, and guidance on the rights of children and adolescents.',
+              schedule: 'Hours: available 24/7, every day.',
+              phone: 'Phone: 102 (toll-free line).',
+            },
+            'Sistema de Atención Médica de Emergencias (SAME)': {
+              description:
+                'Provides emergency medical care in case of accidents or serious illnesses.',
+              schedule: 'Hours: available 24/7, every day.',
+              phone: 'Phone: 107 (toll-free line).',
+            },
+          },
         },
         '/FAQ': {
           menu: 'FAQ',
@@ -153,7 +186,7 @@ i18n.use(initReactI18next).init({
             {
               question: 'What do I do if I forget my password?',
               answer:
-                'If you forget your password, you can reset it by clicking on “Forgot my password” when you log in and you will receive an email with the steps to recover your account.',
+                'If you forget your password, you can reset it by clicking on "Forgot my password" when you log in and you will receive an email with the steps to recover your account.',
             },
             {
               question: 'Does the app have resources or contacts that can help me?',
@@ -179,7 +212,7 @@ i18n.use(initReactI18next).init({
             {
               question: 'Can I delete my account at any time?',
               answer:
-                'Yes, you can delete your account. Only you have to do is click on the “Delete account” option. But… we want to accompany you!',
+                'Yes, you can delete your account. Only you have to do is click on the "Delete account" option. But… we want to accompany you!',
             },
           ],
         },
@@ -277,6 +310,129 @@ i18n.use(initReactI18next).init({
           title: 'We are here to listen',
           subtitle: 'We have noticed you are feeling unwell.<br />Talking to someone can help.',
           button: 'Call',
+        },
+        markerModal: {
+          success: 'Message sent!',
+          error: 'Error sending message',
+          templateMessages: {
+            '1': 'Cheer up!',
+            '2': "I'm here for you",
+            '3': "I'm with you, I share what you feel",
+          },
+        },
+        resources: {
+          access: 'Access',
+          listen: 'Listen',
+          binaurapp: {
+            title: 'Focus your mind, relax your body.',
+            subtitle: 'Enter in a different sound environment.',
+            button: 'Go to the web',
+          },
+          meditation: {
+            title: 'Meditations',
+            items: [
+              {
+                title: 'Peaceful mind.',
+                subtitle: 'A safe space.',
+                description: 'Meditation for beginners.',
+                author: 'Gabriela Málaga',
+                views: '3k views',
+                date: '1 year ago',
+                duration: '15 min',
+              },
+              {
+                title: 'Emotional well-being.',
+                subtitle: 'Time for introspection.',
+                description: 'Guided meditation to relax.',
+                author: 'Luz Zapata',
+                views: '4k views',
+                date: '3 months ago',
+                duration: '20 min',
+              },
+              {
+                title: 'Here and now.',
+                subtitle: 'In search of tranquility.',
+                description: 'Meditate and connect.',
+                author: 'Alma Soler',
+                views: '11k views',
+                date: '11 months ago',
+                duration: '35 min',
+              },
+              {
+                title: 'Solar rune.',
+                subtitle: 'A sonic journey to your interior.',
+                description: 'Meditate and know yourself.',
+                author: 'Runa Solar',
+                views: '1k views',
+                date: '2 years ago',
+                duration: '25 min',
+              },
+            ],
+          },
+          podcast: {
+            recommended: '(recommended)',
+            items: [
+              {
+                title: 'How to cultivate solidarity?',
+                description: 'Lic. Ana Gabriela Mena and team',
+              },
+              {
+                title: 'Learning in community',
+                description: 'Personal Growth Center',
+              },
+              {
+                title: 'Life is worth living',
+                description: 'Collective Development School',
+              },
+              {
+                title: 'Always forward',
+                description: 'Lorena Capobianco Ludueña',
+              },
+              {
+                title: 'You can count on me',
+                description: 'Zafiro Medical Center',
+              },
+              {
+                title: 'Connected bridges',
+                description: 'Support Network NGO',
+              },
+              {
+                title: 'Stories of everyday life',
+                description: 'Civil Association Well-being and Empathy',
+              },
+            ],
+          },
+          playlist: {
+            items: [
+              {
+                title: 'Joined hands. Songs to connect with your surroundings.',
+                description:
+                  'Indian music oriented to improve your connection with what surrounds you.',
+              },
+              {
+                title: 'Sensations. Sounds that calm.',
+                description: 'An exquisite musical selection produced with Tibetan bowls.',
+              },
+              {
+                title: 'Sounds that help you sleep.',
+                description: 'A relaxing auditory experience to fall asleep.',
+              },
+              {
+                title: 'ENYA Nature as a source of inspiration.',
+                description:
+                  'The music of the Irish artist guides towards a journey of deep connection with the environment.',
+              },
+            ],
+          },
+        },
+        notifications: {
+          title: 'Notifications',
+          newMessage: 'You have a new message',
+          today: 'Today',
+          yesterday: 'Yesterday',
+          thisWeek: 'This week',
+          thisMonth: 'This month',
+          older: 'Older',
         },
       },
     },
@@ -392,7 +548,7 @@ i18n.use(initReactI18next).init({
           interactions: 'Mis interacciones',
           configuration: 'Configuración',
           help: 'Emergencia: necesito ayuda',
-          logout: 'Cerrar sesión',
+          logout: 'Salir',
           avatar: 'Elegir avatar',
           notifications: 'Notificaciones',
           customization: 'Personalizar fondo',
@@ -410,7 +566,40 @@ i18n.use(initReactI18next).init({
         },
         '/contacts': {
           menu: 'Contactos',
-          title: 'Contactos',
+          title: 'Instituciones',
+          contacts: {
+            'Centro de Atención al Suicida (CAS)': {
+              description:
+                'Brinda atención y asistencia a personas en crisis emocional o en riesgo de suicidio.',
+              schedule: 'Horario: disponible las 24 horas, todos los días.',
+              phone:
+                'Teléfonos: 135 (línea gratuita desde teléfonos fijos en CABA y Gran Buenos Aires) o (011) 5275-1135 (desde cualquier parte del país).',
+            },
+            'Programa Nacional de Prevención del Suicidio': {
+              description:
+                'Ofrece contención, información y asesoramiento a personas en crisis o a quienes buscan ayudar a alguien en esa situación.',
+              schedule: 'Horario: disponible las 24 horas, todos los días.',
+              phone: 'Teléfonos: 141 (línea gratuita y confidencial).',
+            },
+            'Salud Mental': {
+              description:
+                'Ofrece asistencia, acompañamiento y derivación en casos de urgencias en salud mental.',
+              schedule: 'Horario: disponible las 24 horas, todos los días.',
+              phone: 'Teléfonos: 0800 999 0091 (línea gratuita).',
+            },
+            'Atención a Niñas, Niños y Adolescentes': {
+              description:
+                'Brinda contención, asesoramiento y orientación sobre los derechos de niñas, niños y adolescentes.',
+              schedule: 'Horario: disponible las 24 horas, todos los días.',
+              phone: 'Teléfonos: 102 (línea gratuita).',
+            },
+            'Sistema de Atención Médica de Emergencia (SAME)': {
+              description:
+                'Ofrece atención médica de emergencia en caso de accidentes o enfermedades graves.',
+              schedule: 'Horario: disponible las 24 horas, todos los días.',
+              phone: 'Teléfonos: 107 (línea gratuita).',
+            },
+          },
         },
         '/FAQ': {
           menu: 'FAQ',
@@ -434,12 +623,12 @@ i18n.use(initReactI18next).init({
             {
               question: 'Si olvido mi contraseña, ¿puedo restablecerla?',
               answer:
-                'Si necesitas restablecer tu contraseña, al momento de iniciar sesión puedes hacer clic en “Olvidé mi contraseña” y recibirás un correo electrónico con los pasos para recuperar tu cuenta.',
+                'Si necesitas restablecer tu contraseña, al momento de iniciar sesión puedes hacer clic en "Olvidé mi contraseña" y recibirás un correo electrónico con los pasos para recuperar tu cuenta.',
             },
             {
               question: '¿En la app hay recursos o contactos que me puedan ayudar?',
               answer:
-                'Si necesitas restablecer tu contraseña, al momento de iniciar sesión puedes hacer clic en “Olvidé mi contraseña” y recibirás un correo electrónico con los pasos para recuperar tu cuenta.',
+                'Si necesitas restablecer tu contraseña, al momento de iniciar sesión puedes hacer clic en "Olvidé mi contraseña" y recibirás un correo electrónico con los pasos para recuperar tu cuenta.',
             },
             {
               question:
@@ -461,7 +650,7 @@ i18n.use(initReactI18next).init({
             {
               question: '¿Puedo eliminar mi cuenta en cualquier momento?',
               answer:
-                'Sí, puedes borrar tu cuenta. Solo debes hacer clic en la opción “Eliminar cuenta”. Pero… ¡queremos acompañarte!',
+                'Sí, puedes borrar tu cuenta. Solo debes hacer clic en la opción "Eliminar cuenta". Pero… ¡queremos acompañarte!',
             },
           ],
         },
@@ -560,6 +749,127 @@ i18n.use(initReactI18next).init({
           title: 'Estamos aquí para escucharte',
           subtitle: 'Hemos notado que no te sientes bien.<br />Hablar con alguien puede ayudarte.',
           button: 'Llamar',
+        },
+        markerModal: {
+          success: '¡Mensaje enviado!',
+          error: 'Error al enviar el mensaje',
+          templateMessages: {
+            '1': '¡Ánimo!',
+            '2': 'Cuentas con todo mi apoyo',
+            '3': 'Estoy contigo, comparto lo que sientes',
+          },
+        },
+        resources: {
+          access: 'Acceder',
+          listen: 'Escuchar',
+          binaurapp: {
+            title: 'Enfoca tu mente, relaja tu cuerpo.',
+            subtitle: 'Ingresa en un ambiente sonoro distinto.',
+            button: 'Ir a la web',
+          },
+          meditation: {
+            title: 'Meditaciones',
+            items: [
+              {
+                title: 'Mente tranquila.',
+                subtitle: 'Un espacio seguro.',
+                description: 'Meditación para principiantes.',
+                author: 'Gabriela Málaga',
+                views: '3k de vistas',
+                date: 'hace 1 año',
+                duration: '15 min',
+              },
+              {
+                title: 'Bienestar emocional.',
+                subtitle: 'Tiempo de introspección.',
+                description: 'Meditación guiada para relajar.',
+                author: 'Luz Zapata',
+                views: '4k de vistas',
+                date: 'hace 3 meses',
+                duration: '20 min',
+              },
+              {
+                title: 'Aquí y ahora. En busca de la tranquilidad.',
+                subtitle: 'En busca de la tranquilidad.',
+                description: 'Meditación y conexión.',
+                author: 'Alma Soler',
+                views: '11k de vistas',
+                date: 'hace 11 meses',
+                duration: '35 min',
+              },
+              {
+                title: 'Runa solar.',
+                subtitle: 'Un viaje sonoro a tu interior.',
+                description: 'Meditación y conexión.',
+                author: 'Runa Solar',
+                views: '1k de vistas',
+                date: 'hace 2 años',
+                duration: '25 min',
+              },
+            ],
+          },
+          podcast: {
+            recommended: '(recomendados)',
+            items: [
+              {
+                title: '¿Cómo cultivar la solidaridad?',
+                description: 'Lic. Ana Gabriela Mena y equipo',
+              },
+              {
+                title: 'Aprender en comunidad',
+                description: 'Centro de Crecimiento Personal',
+              },
+              {
+                title: 'Vivir vale la pena',
+                description: 'Escuela de Desarrollo Colectivo',
+              },
+              {
+                title: 'Siempre adelante',
+                description: 'Lorena Capobianco Ludueña',
+              },
+              {
+                title: 'Cuentas conmigo',
+                description: 'Centro Médico Zafiro',
+              },
+              {
+                title: 'Puentes conectados',
+                description: 'ONG Red de apoyo',
+              },
+              {
+                title: 'Historias de la vida cotidiana',
+                description: 'Asociación Civil Bienestar y Empatía',
+              },
+            ],
+          },
+          playlist: {
+            items: [
+              {
+                title: 'Manos enlazadas. Canciones para conectar con tu entorno.',
+                description: 'Música india orientada a mejorar tu vinculación con lo que te rodea.',
+              },
+              {
+                title: 'Sensaciones. Sonidos que calman.',
+                description: 'Una exquisita selección musical producida con cuencos tibetanos.',
+              },
+              {
+                title: 'Sonidos que te ayudan a dormir.',
+                description: 'Una experiencia auditiva relajante para conciliar el sueño.',
+              },
+              {
+                title: 'ENYA La naturaleza como fuente de inspiración.',
+                description:
+                  'La música de la artista irlandesa guía hacia un viaje de conexión profunda con el ambiente.',
+              },
+            ],
+          },
+        },
+        notifications: {
+          newMessage: 'Tienes un mensaje nuevo',
+          today: 'Hoy',
+          yesterday: 'Ayer',
+          thisWeek: 'Esta semana',
+          thisMonth: 'Este mes',
+          thisYear: 'Este año',
         },
       },
     },

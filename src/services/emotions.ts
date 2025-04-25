@@ -31,7 +31,7 @@ export interface LastEmotionResponse {
 
 export interface SendSupportRequest {
   shared_emotion: number | null;
-  template: string;
+  template_id: number;
 }
 
 export interface SendSupportResponse {

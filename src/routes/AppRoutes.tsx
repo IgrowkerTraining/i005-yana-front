@@ -7,6 +7,7 @@ import Contacts from '../pages/Contacts';
 import FAQ from '../pages/FAQ';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
+import Notifications from '../pages/Notifications';
 import Onboarding from '../pages/Onboarding';
 import Profile from '../pages/Profile';
 import Register from '../pages/Register';
@@ -17,7 +18,6 @@ import AccountSettings from '../pages/profile/AccountSettings';
 import ConfigurationSettings from '../pages/profile/ConfigurationSettings';
 import InteractionsSettings from '../pages/profile/InteractionsSettings';
 import MapLayout from './MapLayout';
-
 const AppRoutes: React.FC = () => {
   useTokenRefresh();
 
@@ -37,6 +37,7 @@ const AppRoutes: React.FC = () => {
             </ProtectedRoute>
           }
         >
+          <Route path="/notifications" element={<Notifications />} />
           <Route path="/" element={<Home />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/contacts" element={<Contacts />} />
